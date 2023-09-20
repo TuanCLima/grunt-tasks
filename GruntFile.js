@@ -1,14 +1,17 @@
 module.exports = function(grunt) {
 
-    grunt.initConfig({})
-
-    grunt.registerTask('run', () => {
-        console.log('running run task')
+    grunt.initConfig({
+        concat: {
+            js: {
+                src: ['js/*.js'],
+                dest: 'build/script.js'
+            },
+            css: {
+                src: ['css/*.css'],
+                dest: 'build/style.css'
+            }
+        }
     })
 
-    grunt.registerTask('sleep', () => {
-        console.log('running sleep task')
-    })
-
-    grunt.registerTask('all', ['run', 'sleep'])
+    grunt.loadNpmTasks('grunt-contrib-concat')
 }
